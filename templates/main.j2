@@ -1,0 +1,37 @@
+{% extends "skeleton.j2" %}
+{% block title %}I want that pet!{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="four columns">&nbsp;</div>
+			<div class="four columns">
+				<img width="100px" height="200px" src="{{ url_for('static', filename='images/dog.svg') }}">
+			</div>
+			<div class="four columns">&nbsp;</div>
+		</div>
+		<div class="row">
+			<h3>I want that pet!</h3>
+		</div>
+		<div class="row">
+			<form id="find-animal">
+				<label for="animalID">The animal ID you want</label>
+				<input class="u-full-width" placeholder="12345" id="animalID" type="number" min="10000" max="99999">
+		</div>
+		<div class="row">
+			<button class="button-primary" submit>
+				Follow
+			</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+	<script>
+$("#find-animal").on("submit", function(e){
+	e.preventDefault();
+	location.href = /animal/ + $("#animalID").val();
+})
+	</script>
+{% endblock %}
+
