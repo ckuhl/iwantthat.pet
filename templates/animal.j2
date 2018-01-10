@@ -1,15 +1,16 @@
 {% extends "skeleton.j2" %}
-{% block title %}I want that pet!{% endblock %}
+{% block title %}I want {{ animal_name }}!{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<h1>I want that {{ animal_id }}!</h1>
+			<h1>I love {{ animal_name }}!</h1>
 		</div>
-		<form ic-post-to="/api/subscribe" ic-target="#subscribe">
+		<form ic-post-to="/api/subscribe" ic-target="#subscribe" ic-include="#name-input">
 			<div class="row">
-				<label for="email-input">Enter your email to get updated when {{ animal_id }} gets adopted</label>
-				<input name="email" class="u-full-width" placeholder="12345" id="email-input" type="email">
+				<label for="email-input">Enter your email for an update when {{ animal_name }} is adopted</label>
+				<input name="email" class="u-full-width" placeholder="woof@iwantthat.pet" id="email-input" type="email">
+				<input name="name" class="u-full-width" id="name-input" type="hidden" value="{{ animal_name }}">
 			</div>
 			<div class="row">
 				<button class="button-primary" id="subscribe" submit>
