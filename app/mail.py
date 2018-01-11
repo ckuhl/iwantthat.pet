@@ -24,11 +24,10 @@ def send_subscribe_email(to, pet):
     Send an email to confirm a persons subscription
     """
     sender = "noreply@mail.iwantthat.pet"
-    subject = "I want " + pet + "!"
-    content = pet + "is super cute!" + '\n'
-    content += "To make sure that you get updates, please click this link:" + '\n'
-    content += "https://iwantthat.pet/api/verify/" + to + '\n\n'
-    content += "To verify your email address"
+    subject = "Your subscription to " + pet
+    content = "To make sure that you get updates, please verify your email"
+    content += "by clicking this link:" + '\n\n'
+    content += "https://iwantthat.pet/api/verify/" + to + '/'
     return send_email(sender, to, subject, content)
 
 
@@ -47,7 +46,7 @@ def send_adopted_email(to, pet):
     """
     sender = "noreply@mail.iwantthat.pet"
     subject = pet + " has been adopted"
-    content = "Good news! ${pet} has been adopted!"
+    content = "Good news! " + pet " has been adopted!"
     return send_email(sender, to, subject, content)
 
 

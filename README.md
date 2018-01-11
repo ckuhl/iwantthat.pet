@@ -5,6 +5,11 @@ adopted
 <img width="125" height="200" href="static/images/dog.svg">
 
 
+# Notes
+To actually send mail you'll have to copy `app/SETTINGS.py.template` into
+`app/SETTINGS.py`, and fill in your api key and domain.
+
+
 # To-Do
 1. `[X]` Make page and api routes
 2. `[X]` Write scraper to pull data from [Humane Animal Rescue](https://www.humaneanimalrescue.org/available-pets/)
