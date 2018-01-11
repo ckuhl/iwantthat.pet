@@ -46,7 +46,7 @@ def send_adopted_email(to, pet):
     """
     sender = "noreply@mail.iwantthat.pet"
     subject = pet + " has been adopted"
-    content = "Good news! " + pet " has been adopted!"
+    content = "Good news! " + pet + " has been adopted!"
     return send_email(sender, to, subject, content)
 
 
