@@ -16,6 +16,6 @@ To actually send mail you'll have to copy `app/SETTINGS.py.template` into
 3. `[X]` Test models
 4. `[X]` Set up [Mailgun](https://signup.mailgun.com/new/signup)
 5. `[X]` Set cron scrape job
-6. `[ ]` Deploy
+6. `[X]` Deploy
 7. `[ ]` Look at security (do I need to do anything heavy duty?)
 

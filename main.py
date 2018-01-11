@@ -45,7 +45,7 @@ def create_app():
                     animal_id = a[0].animal_id)
 
         mail.send_subscribe_email(email_addr, animal_name)
-        return "We'll keep you posted!"
+        return 'We\'ll keep you posted!'
 
 
     @app.route('/api/unsubscribe', methods = ['POST'])
@@ -56,10 +56,10 @@ def create_app():
 
         return form_data['email']
 
-    @app.route('/api/verify/<string:email>', methods = ['POST'])
-    def verify_email(em):
-        Subscriber.update(verified=True).where(Subscriber.email == em)
-        return "You're verified!"
+    @app.route('/api/verify/<string:email_addr>', methods = ['GET'])
+    def verify_email(email_addr):
+        Subscriber.update(verified=True).where(Subscriber.email == email_addr)
+        return 'You\'re verified!'
 
 
     # Error ======================================================================
@@ -72,5 +72,5 @@ def create_app():
     # Run ========================================================================
 
     scheduler.start()
-
     return app
+
