@@ -1,2 +1,10 @@
+# Bytecode
+__pycache__/
+
+# virtualenv
+env/
+
+# Configuration
+uwsgi.ini
 app/SECRETS.py
 
