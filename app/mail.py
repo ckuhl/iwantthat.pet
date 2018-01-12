@@ -27,7 +27,7 @@ def send_subscribe_email(to, pet):
     subject = "Your subscription to " + pet
     content = "To make sure that you get updates, please verify your email"
     content += "by clicking this link:" + '\n\n'
-    content += "https://iwantthat.pet/api/verify/" + to + '/'
+    content += "https://iwantthat.pet/api/verify/" + to + '\n'
     return send_email(sender, to, subject, content)
 
 

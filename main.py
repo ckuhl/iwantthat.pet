@@ -52,13 +52,15 @@ def create_app():
     def unsubscribe_email():
         form_data = request.form.to_dict()
 
-        # TODO
-
         return form_data['email']
 
     @app.route('/api/verify/<path:email_addr>', methods = ['GET'])
     def verify_email(email_addr):
-        Subscriber.update(verified=True).where(Subscriber.email == email_addr)
+        with Database.transaction():
+            s = (Subscriber
+                    .update(verified=True)
+                    .where(Subscriber.email == email_addr))
+            s.execute()
         return 'You\'re verified!'
 
 
