@@ -56,7 +56,7 @@ def create_app():
 
         return form_data['email']
 
-    @app.route('/api/verify/<string:email_addr>', methods = ['GET'])
+    @app.route('/api/verify/<path:email_addr>', methods = ['GET'])
     def verify_email(email_addr):
         Subscriber.update(verified=True).where(Subscriber.email == email_addr)
         return 'You\'re verified!'
