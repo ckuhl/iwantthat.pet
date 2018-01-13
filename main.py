@@ -2,7 +2,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask, render_template, request
 from werkzeug.exceptions import abort
 
-from app import mail, recurrant, scrape
+from app import email, recurrant, scrape
 from app.models import Database, Subscriber, Animal, Subscription
 
 def create_app():
@@ -44,8 +44,8 @@ def create_app():
                     sub_id = s[0].sub_id,
                     animal_id = a[0].animal_id)
 
-        mail.send_subscribe_email(email_addr, animal_name)
-        return 'We\'ll keep you posted!'
+        email.send_sub_confirmation(email_addr, animal_name)
+        return "We'll keep you posted!"
 
 
     @app.route('/api/unsubscribe', methods = ['POST'])
@@ -61,7 +61,7 @@ def create_app():
                     .update(verified=True)
                     .where(Subscriber.email == email_addr))
             s.execute()
-        return 'You\'re verified!'
+        return "You're verified!"
 
 
     # Error ======================================================================

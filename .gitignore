@@ -1,5 +1,6 @@
 # Bytecode
 __pycache__/
+*.py[cod]
 
 # virtualenv
 env/
@@ -7,4 +8,5 @@ env/
 # Configuration
 uwsgi.ini
 app/SECRETS.py
+database.sqlite3
 

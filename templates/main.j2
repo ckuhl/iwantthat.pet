@@ -2,45 +2,46 @@
 {% block title %}I want that pet!{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<div class="four columns">&nbsp;</div>
-			<div class="four columns">
-				<img width="100px" height="200px" src="{{ url_for('static', filename='images/dog.svg') }}">
+<div class="container">
+<div class="jumbotron">
+<div class="row">
+<div class="col-3">
+	<img width="150px" src="{{ url_for('static', filename='images/dog.svg') }}">
+</div>
+<div class="col-9">
+	<h1 class="display-4">I want that pet!</h1>
+	<p class="lead">Keep updated on whether the pet you want
+	gets rescued</p>
+
+	<p>
+	Find an animal that you love on the
+	<a href="https://www.humaneanimalrescue.org/available-pets/">
+		Humane Animal Rescue website
+	</a>
+	, and enter the ID to get updated when it is adopted!
+	</p>
+	<form id="find-animal">
+		<div class="form-group">
+			<label for="animalID"><b>Enter the animal ID you want to follow:</b></label>
+			<div class="input-group">
+				<input class="form-control" placeholder="12345" id="animalID" type="number">
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="submit">Follow</button>
+				</div>
 			</div>
-			<div class="four columns">&nbsp;</div>
 		</div>
-		<div class="row">
-			<h3>I want that pet!</h3>
-		</div>
-		<div class="row">
-			<p>
-				Find an animal that you love on the
-				<a href="https://www.humaneanimalrescue.org/available-pets/">
-					Humane Animal Rescue website
-				</a>
-				, and enter it's ID to get updated when it is
-				adopted!
-			</p>
-		<div class="row">
-			<form id="find-animal">
-				<label for="animalID">The animal ID you want</label>
-				<input class="u-full-width" placeholder="12345" id="animalID" type="number" min="10000" max="99999">
-		</div>
-		<div class="row">
-			<button class="button-primary" submit>
-				Follow
-			</button>
-			</form>
-		</div>
-	</div>
-{% endblock %}
-{% block js %}
-	<script>
+	</form>
+</div>
+</div>
+</div>
+	{% endblock %}
+	{% block js %}
+		<script>
 $("#find-animal").on("submit", function(e){
+	console.log($("#animalID").val());
 	e.preventDefault();
-	location.href = /animal/ + $("#animalID").val();
+	location.href = "/animal/" + $("#animalID").val();
 })
-	</script>
-{% endblock %}
+		</script>
+	{% endblock %}
 

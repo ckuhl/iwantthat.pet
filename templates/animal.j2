@@ -2,23 +2,22 @@
 {% block title %}I want {{ animal_name }}!{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-	<div class="container">
-		<div class="row">
-			<h1>I love {{ animal_name }}!</h1>
+<div class="container">
+<div class="jumbotron">
+	<h1 class="display-4">I love {{ animal_name }}!</h1>
+	<form ic-post-to="/api/subscribe" ic-target="#subscribe" ic-include="#name-input">
+		<label for="email-input"><b>Enter your email for an update when {{ animal_name }} is adopted</b></label>
+		<div class="input-group">
+			<input name="name" class="form-control" id="name-input" type="hidden" value="{{ animal_name }}">
+
+			<input name="email" class="form-control" placeholder="woof@iwantthat.pet" id="email-input" type="email">
+			<div class="input-group-append">
+				<button class="btn btn-primary" id="subscribe" submit>Keep me updated!</button>
+			</div>
 		</div>
-		<form ic-post-to="/api/subscribe" ic-target="#subscribe" ic-include="#name-input">
-			<div class="row">
-				<label for="email-input">Enter your email for an update when {{ animal_name }} is adopted</label>
-				<input name="email" class="u-full-width" placeholder="woof@iwantthat.pet" id="email-input" type="email">
-				<input name="name" class="u-full-width" id="name-input" type="hidden" value="{{ animal_name }}">
-			</div>
-			<div class="row">
-				<button class="button-primary" id="subscribe" submit>
-					Keep me updated!
-				</button>
-			</div>
-		</form>
-	</div>
+	</form>
+</div>
+</div>
 {% endblock %}
 {% block js %}{% endblock %}
 
